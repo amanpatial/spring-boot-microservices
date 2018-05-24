@@ -1,5 +1,11 @@
 #Spring boot build steps
 
+#Pre-requisites  
+
+Java 1.8   to see run java --version
+
+Maven 3.5.x  to see version run mvn -v
+
 cd /go/to/project/root/directory
 
 mvn clean install
