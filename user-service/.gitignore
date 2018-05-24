@@ -23,6 +23,15 @@ dist/
 nbdist/
 .nb-gradle/
 
+# Eclipse
+.settings/
+*.project
+*.classpath
+.prefs
+*.prefs
+.metadata/
+.factorypath
+
 # Package Files #
 *.jar
 *.war
