@@ -1,3 +1,5 @@
+echo "Installation is starting..."
+
 # Install OpenJDK 8 for CentOS/RHEL 7/6/5
 sudo yum install -y java-1.8.0-openjdk
 
@@ -27,3 +29,5 @@ source /etc/profile
 
 # Verify the installation
 mvn --version
+
+echo "Installation is done successfully!"
