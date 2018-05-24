@@ -1,5 +1,4 @@
 #!/bin/sh
-
 echo "Installation is starting..."
 
 # Install OpenJDK 8 for CentOS/RHEL 7/6/5
