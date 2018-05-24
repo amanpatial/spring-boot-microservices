@@ -1,10 +1,10 @@
 package com.microservice.education.userservice.resource;
 
 import com.microservice.education.userservice.model.User;
-import com.microservice.education.userservice.repositories.UserRepository;
+
 import com.microservice.education.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  * @author aman
  *
  */
-@EnableDiscoveryClient
+
 @RestController
 public class UserResource {
     @Autowired
