@@ -14,20 +14,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    private List<User> users = new ArrayList<>(Arrays.asList(
-            new User("1", "Aman", "aman.patial@gmail.com"),
-            new User("2", "Raman", "raman.patial@gmail.com")
-    ));
-
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         userRepository.findAll().forEach(users::add);
         return users;
     }
-
-   public void addUser(User user) {
+    public User getUser(Long id){ return userRepository.getOne(id); }
+    public void deleteUser(Long id){
+        userRepository.deleteById(id);
+    }
+    public void updateUser(User user, Long id){
         userRepository.save(user);
-       //users.add(user);
-   }
+    }
+    public void addUser(User user) { userRepository.save(user); }
 
 }

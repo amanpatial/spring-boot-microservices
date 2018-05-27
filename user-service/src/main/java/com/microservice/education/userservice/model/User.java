@@ -1,5 +1,6 @@
 package com.microservice.education.userservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,27 +8,29 @@ import javax.persistence.Table;
 
 /* User Domain */
 @Entity
-@Table(name = "users")
+@Table(name = "user")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
     @Id
-    private String id;
+    @GeneratedValue
+    private Long id;
     private String name;
     private String email;
 
     public User() {
     }
 
-    public User(String id, String name, String email) {
+    public User(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

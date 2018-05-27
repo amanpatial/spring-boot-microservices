@@ -17,20 +17,38 @@ import java.util.List;
 
 @RestController
 public class UserResource {
+
     @Autowired
     private UserService userService;
 
-   @RequestMapping("/hello")
+    @RequestMapping("/hello")
     public String getName(){
        return "Hello";
    }
+
     @RequestMapping("/users")
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return userService.getAllUsers();
     }
+
     @RequestMapping(method = RequestMethod.POST, value ="/users")
     public void addUser(@RequestBody User user){
        userService.addUser(user);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/users/{id}")
+    public User getUser(@PathVariable Long id){
+        return userService.getUser(id);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value ="/users/{id}")
+    public void updateUser(@RequestBody User user, @PathVariable Long id){
+        userService.updateUser(user, id);
+    };
+
+    @RequestMapping(method = RequestMethod.DELETE, value= "/users/{id}")
+    public void deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
     }
 
 }
