@@ -12,7 +12,6 @@ Content-Type: application/json
 
 RESPONSE: HTTP 201 (Created)
 Location: http://localhost:8080/users
-
 ```
 
 ### Retrieve a list of users
@@ -43,10 +42,11 @@ Content-Type: application/json
   "name": "aman patial",
   "email": "aman.patial@gmail.com"
 }
+
 RESPONSE: HTTP 200
 Location: http://localhost:8080/users/1
-
 ```
+
 ### Delete a user resource
 ```
 DELETE /users/1
