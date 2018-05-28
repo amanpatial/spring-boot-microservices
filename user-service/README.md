@@ -1,5 +1,5 @@
 ## Spring Boot Project
-This is Spring Boot (version 2.0.0) application with CRUD end points connecting through mysql.
+Spring Boot (version 2.0.0) application with CRUD end points connecting through mysql.
 
 ### Pre-requisites and build steps
 ```
@@ -11,6 +11,14 @@ cd /go/to/project/code/root/directory
 mvn clean install
 mvn clean install -DskipTests -Dpmd.skip=true  (optional to avoid the test package building)
 java -jar ./target/user-service-0.0.1-SNAPSHOT.jar --spring.config.location=./src/main/resources/application.properties
+```
+### Docker app set up
+```
+clone the code repository
+cd /go/to/project/code/root/directory
+docker build -f Dockerfile -t docker-user-service .
+docker images 
+docker run docker-user-service
 ```
 
 ## APIs
