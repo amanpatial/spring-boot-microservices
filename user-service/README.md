@@ -3,7 +3,7 @@ This is Spring Boot (version 2.0.0) application with CRUD end points connecting 
 
 ### Pre-requisites and build steps
 ```
-Make sure that you operating system has JDK 1.8 and Maven 3.x installed
+Make sure that your operating system had JDK 1.8 and Maven 3.x installed
 java --version
 mvn -v
 clone the code repository
