@@ -12,13 +12,18 @@ mvn clean install
 mvn clean install -DskipTests -Dpmd.skip=true  (optional to avoid the test package building)
 java -jar ./target/user-service-0.0.1-SNAPSHOT.jar --spring.config.location=./src/main/resources/application.properties
 ```
-### Docker app set up
+###  Docker's pre-requisites and installation steps
 ```
+Make sure that your operating system had JDK 1.8 and Maven 3.x installed
+Make sure docker latest verison is installed. use docker -v
+Refer: https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
+
 clone the code repository
 cd /go/to/project/code/root/directory
-docker build -f Dockerfile -t docker-user-service .
+mvn clean install
+docker build -f Dockerfile -t user-service .
 docker images 
-docker run docker-user-service
+docker run -p 8080:8080 user-service
 ```
 
 ## APIs
