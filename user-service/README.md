@@ -1,5 +1,4 @@
 ### Create a user resource
-
 ```
 POST /users
 Accept: application/json
@@ -16,34 +15,45 @@ Location: http://localhost:8080/users
 
 ```
 
-## GET
+### Retrieve a list of users
+```
+GET /users
 
-## Content-Type application/json
+RESPONSE: HTTP 200
+Content: list of users in json format
+```
 
-http://localhost:8080/users
+### Retrieve a single users
+```
+GET /users/1
 
-
-## GET
-
-## Content-Type application/json
+RESPONSE: HTTP 200
 http://localhost:8080/users/1
+Content: user information in json format
+```
 
+### Update a user resource
+```
+PUT /users/1
+Accept: application/json
+Content-Type: application/json
 
-
-
-## PUT
-
-## Content-Type application/json
-
-http://localhost:8080/users/1
 {
   "id":"1",
   "name": "aman patial",
   "email": "aman.patial@gmail.com"
 }
+RESPONSE: HTTP 200
+Location: http://localhost:8080/users/1
 
-## DELETE
-
-## Content-Type application/json
+```
+### Delete a user resource
+```
+DELETE /users/1
+Accept: application/json
+Content-Type: application/json
 
 http://localhost:8080/users/1
+RESPONSE: HTTP 200
+Location: http://localhost:8080/users/1
+```
