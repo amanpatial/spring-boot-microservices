@@ -17,6 +17,7 @@ java -jar ./target/user-service-0.0.1-SNAPSHOT.jar --spring.config.location=./sr
 Make sure that your operating system had JDK 1.8 and Maven 3.x installed
 Make sure docker latest verison is installed. use docker -v
 Refer: https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
+sudo systemctl start docker
 
 clone the code repository
 cd /go/to/project/code/root/directory
