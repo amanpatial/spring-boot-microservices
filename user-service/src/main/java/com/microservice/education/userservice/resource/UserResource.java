@@ -26,26 +26,31 @@ public class UserResource {
        return "Hello";
    }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping("/users")
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.POST, value ="/users")
     public void addUser(@RequestBody User user){
        userService.addUser(user);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.GET, value = "/users/{id}")
     public User getUser(@PathVariable Long id){
         return userService.getUser(id);
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.PUT, value ="/users/{id}")
     public void updateUser(@RequestBody User user, @PathVariable Long id){
         userService.updateUser(user, id);
     };
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.DELETE, value= "/users/{id}")
     public void deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
