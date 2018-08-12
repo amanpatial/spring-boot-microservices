@@ -4,7 +4,7 @@ Micro services architecture with Spring Boot 2.0 application - API Gateway, User
 ### Pre-requisites and build steps
 ```
 Make sure that your operating system had JDK 1.8 and Maven 3.x installed
-java --version
+java -version
 mvn -v
 chmod +x ./install.sh ( only for linux instances, in case java and maven are not installed) 
 clone the code repository
