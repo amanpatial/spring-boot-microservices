@@ -60,6 +60,26 @@ GET /users/1
 RESPONSE: HTTP 200
 http://localhost:8080/users/1
 Content: user information in json format
+
+{
+  "id":"1",
+  "name": "aman",
+  "email": "aman.patial@gmail.com",
+  "addresses": [
+            {
+                "id": 17,
+                "addressText": "Chandigarh"
+            },
+            {
+                "id": 3,
+                "addressText": "Bangalore"
+            },
+            {
+                "id": 4,
+                "addressText": "Amritsar"
+            }
+        ]
+}
 ```
 
 ### Update a user resource
@@ -86,4 +106,39 @@ Content-Type: application/json
 
 RESPONSE: HTTP 200
 Location: http://localhost:8080/users/1
+```
+
+### Create a address resource for a user
+```
+POST /users/{userid}/addresses
+Accept: application/json
+Content-Type: application/json
+
+/users/1/addresses
+{
+    "addressText": "Chandigarh"
+}
+```
+## Create a address resource
+```
+POST /address
+
+{
+    "addressText": "Chandigarh"
+}
+
+```
+
+## Get a address resource
+```
+Get /address
+
+{
+    "addressText": "Chandigarh"
+},
+
+{
+    "addressText": "Amritsar"
+}
+
 ```
