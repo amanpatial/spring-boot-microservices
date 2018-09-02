@@ -13,7 +13,7 @@ public class Address {
     private Long id;
     private String addressText;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JsonIgnore
     @JoinColumn(name = "user_id")
     private User user;

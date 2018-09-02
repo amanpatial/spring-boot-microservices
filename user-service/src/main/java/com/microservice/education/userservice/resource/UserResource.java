@@ -17,8 +17,8 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/users")
 public class UserResource {
-
 
     @Autowired
     private UserService userService;
@@ -28,38 +28,53 @@ public class UserResource {
        return "Hello";
    }
 
+    // Get All Users
     @CrossOrigin(origins = "*")
-    @RequestMapping("/users")
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsers() {
         HttpHeaders responseHeaders = new HttpHeaders();
         return new ResponseEntity<List<User>>(userService.getAllUsers(), responseHeaders, HttpStatus.OK);
     }
 
+    // Get Single User
     @CrossOrigin(origins = "*")
-    @RequestMapping(method = RequestMethod.POST, value ="/users")
-    public void addUser(@RequestBody User user){
-        //userService.addUser(user);
-        addUserAndAddress();
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<User> getUser(@PathVariable Long id){
+        User user = userService.getUser(id);
+
+        if (user != null){
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
+        }
     }
 
+    // Add User
     @CrossOrigin(origins = "*")
-    @RequestMapping(method = RequestMethod.GET, value = "/users/{id}")
-    public User getUser(@PathVariable Long id){
-        return userService.getUser(id);
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> addUser(@RequestBody User user){
+        userService.addUser(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+        //addUserAndAddress();
     }
 
+    // Update User
     @CrossOrigin(origins = "*")
-    @RequestMapping(method = RequestMethod.PUT, value ="/users/{id}")
+    @RequestMapping( value ="/{id}", method = RequestMethod.PUT)
     public void updateUser(@RequestBody User user, @PathVariable Long id){
         userService.updateUser(user, id);
     };
 
+    // Delete User
     @CrossOrigin(origins = "*")
-    @RequestMapping(method = RequestMethod.DELETE, value= "/users/{id}")
-    public void deleteUser(@PathVariable Long id){
+    @RequestMapping(value= "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
+    // Get Users by name
     @CrossOrigin(origins = "*")
     public List<User> findByName(@RequestParam(value="name") String name){
         return userService.findByName(name);
