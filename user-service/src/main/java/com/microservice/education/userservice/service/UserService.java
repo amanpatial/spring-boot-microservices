@@ -9,4 +9,5 @@ public interface UserService {
     public void deleteUser(Long id);
     public void updateUser(User user, Long id);
     public void addUser(User user);
+    public List<User> findByName(String text);
 }

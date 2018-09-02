@@ -1,27 +1,37 @@
 package com.microservice.education.userservice.model;
-
+import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.*;
 
 /* User Domain */
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="user_id")
     private Long id;
+
     private String name;
     private String email;
+
+    @OneToMany( mappedBy = "user", cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    private Set<Address> addresses = new HashSet<>();
 
     public User() {
     }
 
-    public User(Long id, String name, String email) {
-        this.id = id;
+    public User(String name) {
+        this.name = name;
+    }
+
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
     }
@@ -48,6 +58,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
     }
 
     @Override
