@@ -17,24 +17,6 @@ public class UserServiceImpl implements UserService {
         userRepository.findAll().forEach(users::add);
         return users;
     }
-    public List<User> findByName(String text) {
-
-       // log.info("Find By Name :" + text);
-       // System.out.print("Find By Name :" + text);
-        List<User> filterUsersByName = new ArrayList<>();
-        List<User> users = getAllUsers();
-        for( User user : users) {
-           /// System.out.println(user.getName().toString());
-           // System.out.println(user.getName().contains(text));
-           // System.out.println( (user.getName().toString() == text));
-              if (user.getName().contains(text)){
-                  filterUsersByName.add(user);
-                  System.out.print(user.getName());
-              }
-        }
-       // System.out.print(filterUsersByName);
-        return filterUsersByName;
-    }
     public User getUser(Long id){ return userRepository.getOne(id); }
     public void deleteUser(Long id){
         userRepository.deleteById(id);
@@ -43,5 +25,5 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
     public void addUser(User user) { userRepository.save(user); }
-
+    public List<User> findByName(String name) { return userRepository.findByName(name);}
 }

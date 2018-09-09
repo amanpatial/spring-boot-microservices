@@ -76,6 +76,7 @@ public class UserResource {
 
     // Get Users by name
     @CrossOrigin(origins = "*")
+    @RequestMapping("/filter")
     public List<User> findByName(@RequestParam(value="name") String name){
         return userService.findByName(name);
     }

@@ -81,6 +81,34 @@ Content: user information in json format
         ]
 }
 ```
+### Retrieve a user by name
+```
+GET /users/filter
+
+RESPONSE: HTTP 200
+http://localhost:8080/users/filter?name=aman
+Content: user information in json format
+
+{
+  "id":"1",
+  "name": "aman",
+  "email": "aman.patial@gmail.com",
+  "addresses": [
+            {
+                "id": 17,
+                "addressText": "Chandigarh"
+            },
+            {
+                "id": 3,
+                "addressText": "Bangalore"
+            },
+            {
+                "id": 4,
+                "addressText": "Amritsar"
+            }
+        ]
+}
+```
 
 ### Update a user resource
 ```
