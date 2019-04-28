@@ -39,14 +39,15 @@ public class AddressResource {
     }
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(method = RequestMethod.POST, value ="/address")
-    public ResponseEntity<Void> addAddress(Address address){
+    @RequestMapping(method = RequestMethod.POST, value = "/address")
+    public ResponseEntity<Void> addAddress(Address address) {
         addressService.addAddress(address);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
     @PostMapping("/users/{userId}/addresses")
-    public ResponseEntity<Void> createAddress(@PathVariable (value = "userId") Long userId, @Valid @RequestBody Address address) {
+    public ResponseEntity<Void> createAddress(@PathVariable(value = "userId") Long userId,
+                                              @Valid @RequestBody Address address) {
         addressService.addAddress(userId, address);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }

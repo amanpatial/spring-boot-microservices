@@ -8,12 +8,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /**
  * REST endpoint to be used by other micro-services
- * @author aman
  *
+ * @author aman
  */
 
 @RestController
@@ -24,9 +25,9 @@ public class UserResource {
     private UserService userService;
 
     @RequestMapping("/hello")
-    public String getName(){
-       return "Hello";
-   }
+    public String getName() {
+        return "Hello";
+    }
 
     // Get All Users
     @CrossOrigin(origins = "*")
@@ -39,13 +40,12 @@ public class UserResource {
     // Get Single User
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<User> getUser(@PathVariable Long id){
+    public ResponseEntity<User> getUser(@PathVariable Long id) {
         User user = userService.getUser(id);
 
-        if (user != null){
+        if (user != null) {
             return new ResponseEntity<>(user, HttpStatus.OK);
-        }
-        else {
+        } else {
             return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
         }
     }
@@ -53,7 +53,7 @@ public class UserResource {
     // Add User
     @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> addUser(@RequestBody User user){
+    public ResponseEntity<?> addUser(@RequestBody User user) {
         userService.addUser(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
         //addUserAndAddress();
@@ -61,15 +61,17 @@ public class UserResource {
 
     // Update User
     @CrossOrigin(origins = "*")
-    @RequestMapping( value ="/{id}", method = RequestMethod.PUT)
-    public void updateUser(@RequestBody User user, @PathVariable Long id){
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateUser(@RequestBody User user, @PathVariable Long id) {
         userService.updateUser(user, id);
-    };
+    }
+
+    ;
 
     // Delete User
     @CrossOrigin(origins = "*")
-    @RequestMapping(value= "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id){
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
@@ -77,12 +79,12 @@ public class UserResource {
     // Get Users by name
     @CrossOrigin(origins = "*")
     @RequestMapping("/filter")
-    public List<User> findByName(@RequestParam(value="name") String name){
+    public List<User> findByName(@RequestParam(value = "name") String name) {
         return userService.findByName(name);
     }
 
     //Demonstrate the capabilities to handle the one to many and many to one
-    public void addUserAndAddress(){
+    public void addUserAndAddress() {
         //Create User
         User amanUser = new User("Aman", "aman.patial@gmail.com");
 
