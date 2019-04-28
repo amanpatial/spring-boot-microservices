@@ -1,5 +1,6 @@
 package com.microservice.education.userservice;
 
+import com.microservice.education.userservice.model.Order;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,5 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
+
+        /* to enable and test lombok
+        Order order = new Order();
+        order.setOrderId("1");
+        System.out.println(order.getOrderId()); */
     }
 }

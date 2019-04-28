@@ -66,8 +66,6 @@ public class UserResource {
         userService.updateUser(user, id);
     }
 
-    ;
-
     // Delete User
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
