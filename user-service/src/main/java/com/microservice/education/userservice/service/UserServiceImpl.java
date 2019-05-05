@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id){
         userRepository.deleteById(id);
     }
-    public void updateUser(User user, Long id){
-        userRepository.save(user);
+    public User updateUser(User user, Long id){
+        return userRepository.save(user);
     }
-    public void addUser(User user) { userRepository.save(user); }
+    public User addUser(User user) { return userRepository.save(user); }
     public List<User> findByName(String name) { return userRepository.findByName(name);}
 }

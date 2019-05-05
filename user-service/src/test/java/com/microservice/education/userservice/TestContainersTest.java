@@ -6,21 +6,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.containers.output.Slf4jLogConsumer;
-
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 public class TestContainersTest {
 
-    private static final String MYSQL_USERNAME = "testuser";
-    private static final String MYSQL_PASSWORD = "testpassword";
-    private static final String MYSQL_DATABASE_NAME = "testdb";
+    private static final String MYSQL_USERNAME = "dummyuser";
+    private static final String MYSQL_PASSWORD = "dummypassword";
+    private static final String MYSQL_DATABASE_NAME = "dummydb";
     private static final Logger logger = LoggerFactory.getLogger(TestContainersTest.class);
 
     @ClassRule
