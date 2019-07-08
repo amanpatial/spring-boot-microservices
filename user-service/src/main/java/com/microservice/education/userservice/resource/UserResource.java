@@ -8,7 +8,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
@@ -21,12 +22,16 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserResource {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserResource.class);
+
     @Autowired
     private UserService userService;
 
     @RequestMapping("/hello")
     public String getName() {
-        return "Hello";
+        String returnValue = "Hello";
+        LOGGER.info("{} ", returnValue);
+        return returnValue;
     }
 
     // Get All Users
